@@ -1,0 +1,835 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!-- א -->
+	<title>Hierax Legibility Enhancement Software</title>
+	<meta http-equiv="Content-language" content="en">
+	<meta name="Author" content="Vlad Atanasiu">
+	<meta name="Keywords" content="papyrology, image enhancement">
+	<meta name="Description" content="Help file to Hierax software for papyri image legibility enhancement">
+	<link rel="stylesheet" type="text/css" href="hierax.css">
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<script>
+
+function displayMoreContent(idMessage,idContent) {
+	document.getElementById(idMessage).style.display = "none";
+	document.getElementById(idContent).style.display = "block";
+}
+
+</script>
+
+<body id="HEADER">
+
+<!-- -------------------------------------------- -->
+<!-- 			       MENU     	              -->
+<!-- -------------------------------------------- -->
+
+<div id="menu">
+	<table style="width: 100%;">
+		<tr>
+			<td></td>
+			<td><p><a href="#HEADER">Top</a></p></td>
+			<td></td>
+			<td><p><a href="#CONTENTS">Contents</a></p></td>
+			<td></td>
+			<td><p><a href="#ACTIVATE">Download</a></p></td>
+			<td></td>
+			<td><p><a href="#INTERFACE">Interface</a></p></td>
+			<td></td>
+			<td><p><a href="#USAGE">Usage</a></p></td>
+			<td></td>
+		</tr>
+	</table>
+</div>
+
+<!-- -------------------------------------------- -->
+<!-- 			       HEADER     	              -->
+<!-- -------------------------------------------- -->
+
+<div class="frame">
+
+<div style="margin: auto; text-align: center; padding-top: 36pt;">
+
+	<p style="padding: 50px 0 50px 0;"><img src="brand/hierax-logo.jpg" alt="Hierax" width="575" height="345"></p>
+
+	<p class="title">HIERAX</p>
+
+	<p class="subtitle">Software for Enhancing the Legibility of Papyri</p>
+
+	<p>—</p>
+	
+	<p><span class="italic">Produced by</span></br>D-Scribes Project</br>University of Basel, Switzerland</br><a href="http://d-scribes.org" target="_new">http://d-scribes.org</a></p>
+
+	<p><span class="italic">Directed by</span></br>Isabelle Marthot-Santaniello</br>i.marthot-santaniello@unibas.ch</br><a href="https://altegeschichte.philhist.unibas.ch/de/personen/isabelle-marthot-santaniello/" target="_new">Official webpage</a></p>
+
+	<p><span class="italic">Written by</span></br>Vlad Atanasiu</br> atanasiu@alum.mit.edu</br><a href="https://fr.linkedin.com/in/atanasiuvlad/en-us" target="_new">LinkedIn</a></p>
+
+	<p><span class="italic">Funded by</span></br>Swiss National Science Foundation</br> <a href="http://www.snf.ch" target="_new">http://www.snf.ch</a></p>
+
+	<p><span class="italic">Contributions by</span></br>Olivier Calligaro, Faye Gedeon, François Gerardin, Lucas Gericke, Stephan Neitmann, Simon Raith, Ombeline van Rooij, Audric Wannaz: evaluators of the image enhancement methods — Pedro García-Baró, Adam Bülow-Jacobsen, Fatjon Lala, Hussein Mohammed, Johannes Nussbaum, Stephan Unter, Loreleï Vanderheyden, Audric Wannaz, Emanuel Wenger: software evaluators — Phil Harvey, Geoffrey Schivre, and Ben Tordoff: open source code providers.</p>
+
+	<p><span class="italic">Online at</span></br><a href="https://hierax.ch/" target="_new">https://hierax.ch</a></p>
+
+	<p>—</p>
+
+	<div style="padding-top: 12pt"></div>
+
+</div>
+
+
+<p class="blurb">The purpose of this software is to enhance the legibility of papyri for text edition and publication. It consists of an <span class="blurb-italic">image processing tool</span> and an <span class="blurb-italic">image viewer</span>.</p>
+
+
+<h2 id="HIGHLIGHTS">HIGHLIGHTS</h2>
+
+	<p>— <span class="bold">Fully automatic image enhancement</span>, which is especially useful for processing image collections.</p>
+
+	<p>— <span class="bold">Multiple enhancement methods</span>, for covering a variety of document and reproduction qualities, tasks, and subjective preferences.</p>
+
+	<p>— <span class="bold">Complementary to other software</span>, such as DStretch and Photoshop.</p>
+
+	<p>— <span class="bold">Open source code</span>.</p>
+
+<h2 id="ENHANCEMENT_EXAMPLES">ENHANCEMENT EXAMPLES</h2>
+
+	<table>
+		<tr>
+			<td><img src="images/PSI-XIII-1298-(15a)-r-1-original.jpg" alt="Input papyrus image" style="width:285px; height:294px;"></br>Input image</td>
+			<td><img src="images/PSI-XIII-1298-(15a)-r-1-vividness.jpg" alt="Enhancement by vividness" style="width:285px; height:294px;"></br>Vividness</td>
+		</tr>
+		<tr>
+			<td><img src="images/PSI-XIII-1298-(15a)-r-1-lsv.jpg" alt="Enhancement by LSV" style="width:285px; height:294px;"></br>LSV</td>
+			<td><img src="images/PSI-XIII-1298-(15a)-r-1-vividnessneg.jpg" alt="Enhancement by vividness negative" style="width:285px; height:294px;"></br>Vividness Negative</td>
+		</tr>
+		<tr>
+			<td><img src="images/PSI-XIII-1298-(15a)-r-1-adapthisteq.jpg" alt="Enhancement by adapthisteq" style="width:285px; height:294px;"></br>Adapthisteq</td>
+			<td><img src="images/PSI-XIII-1298-(15a)-r-1-MSRCR-RGB.jpg" alt="Enhancement by RGB retinex" style="width:285px; height:294px;"></br>Retinex MSRCR-RGB</td>
+		</tr>
+		<tr>
+			<td><img src="images/PSI-XIII-1298-(15a)-r-1-MSR-VAB.jpg" alt="Enhancement by CIELAB retinex" style="width:285px; height:294px;"></br>Retinex MSR-VAB</td>
+			<td><img src="images/PSI-XIII-1298-(15a)-r-1-MSR-VAB-blue-negative.jpg" alt="Enhancement by CIELAB retinex blue negative" style="width:285px; height:294px;"></br>Retinex MSR-VAB Blue Negative</td>
+		</tr>
+		<tr>
+			<td style="vertical-align: middle; background-color: #F0F0F0; padding: 0px;">For comparison, </br>enhacement produced by </br>the <a href="https://www.dstretch.com/" target="_new">DStretch</a> software, </br>with the option LBK.</td>
+			<td style="padding: 0px;"><img src="images/PSI-XIII-1298-(15a)-r-1-dstretch-lbk.jpg" alt="Enhancement by DStretch software, option LBK" style="width:285px; height:294px;"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+
+	<p class="credits"><span class="italic">Image credits</span> — <a href="http://www.psi-online.it/documents/psi;13;1298" target="_new">PSI XIII 1298 (15a) r1</a>, detail © Istituto Papirologico Vitelli, Florence, by permission.</p>
+
+	<div style="padding-top: 12pt"></div>
+
+
+<!-- The intersection-space DIVs are necessary to avoid the top of a section being hidden by the menu when the user clicks on an anchor attached to the said section. -->
+<div class="intersection-space" id="CONTENTS">&nbsp;</div>
+<h2>CONTENTS</h2>
+
+	<div style="padding-top: 12pt"></div>
+
+	<h3><span class="underline"><a href="#ACTIVATE" style="border-bottom-width: 0px;">Activate</a></span></h3>
+	<ul>
+		<li><a href="#DOWNLOAD">Download</a></li>
+		<li><a href="#INSTALLATION">Installation</a></li>
+		<li><a href="#BASICS">Basic Concepts</a></li>
+		<li><a href="#WORKFLOW">Workflow</a></li>
+	</ul>
+
+	<h3><span class="underline"><a href="#INTERFACE" style="border-bottom-width: 0px;">Interface</a></span></h3>
+	<ul>
+		<li><a href="#ENHANCE_TAB">Enhance Tab</a></li>
+		<ul class="indented">
+			<li><a href="#METHODS">1. Methods</a></li>
+			<li><a href="#POSTPROCESSING">2. Postprocessing</a></li>
+			<li><a href="#AUXILIARIES">3. Auxiliaries</a></li>
+			<li><a href="#SAVE">4. Save As</a></li>
+			<li><a href="#DATA">5. Process Images</a></li>
+			<li><a href="#HELP">Help</a></li>
+		</ul>
+		<li><a href="#OVERVIEW_TAB">Overview Tab</a></li>
+		<li><a href="#DETAIL_TAB">Detail Tab</a></li>
+		<ul class="indented">
+			<li><a href="#INTERACTION">1. Interaction</a></li>
+			<li><a href="#ORDER">2. Order</a></li>
+		</ul>
+	</ul>
+
+	<h3><span class="underline"><a href="#USAGE" style="border-bottom-width: 0px;">Usage</a></span></h3>
+	<ul>
+		<li><a href="#TIPS">Tips</a></li>
+		<ul class="indented">
+			<li><a href="#IMAGE_QUALITY">Image Quality</a></li>
+			<li><a href="#CROPPING">Cropping</a></li>
+			<li><a href="#DSTRETCH">Comparison with DStretch</a></li>
+			<li><a href="#INFRARED">Infrared</a></li>
+			<li><a href="#BINARIZATION">Binarization</a></li>
+		</ul>
+		<li><a href="#BEST_METHODS">Best Methods</a></li>
+		<ul class="indented">
+			<li><a href="#CASE_STUDY">Case Study</a></li>
+		</ul>
+		<li><a href="#SAMPLE_IMAGES">Sample Images</a></li>
+		<li><a href="#TROUBLESHOOTING">Troubleshooting</a></li>
+		<li><a href="#REFERENCES">References</a></li>
+		<li><a href="#IDENTITY">Identity</a></li>
+		<li><a href="#UPDATES">Updates</a></li>
+	</ul>
+	</br>
+
+
+
+</div>
+<div class="interframe"></div>
+<div class="frame" id="ACTIVATE">
+
+
+<!-- -------------------------------------------- -->
+<!-- 			     INTRODUCTION 	              -->
+<!-- -------------------------------------------- -->
+
+
+<h1 id="DOWNLOAD">ACTIVATE</h1>
+
+<h2>DOWNLOAD</h2>
+
+	<!-- COMMENT OUT WHICHEVER OF THE FOLLWOING SECTIONS IS NOT APPROPRIATE FOR WHERE -->
+	<!-- THIS FILE IS TO BE USED: SHIPPED WITH THE SOFTWARE OR ON A WEBSITE.   -->
+
+	<!-- 1.START CODE FOR THE SHIPPED DOCUMENTATION VERSION OF THIS FILE -->
+	<p>To dowload the newest Hierax version and consult the newest documentation, please go to <span class="bold"><a href="https://hierax.ch/" target="_new">https://hierax.ch</a></span>.</p>
+	<!-- 1.END CODE FOR THE SHIPPED DOCUMENTATION VERSION · END -->
+
+
+	<!-- 2.START CODE FOR THE WEBSITE DOCUMENTATION VERSION OF THIS FILE -->
+	<!---
+	<table id="download-table" style="width: 100%;">
+		<tr>
+			<td class="download-td-link"><p><a href="https://hierax.ch/download/Hierax_v20210330win.zip"><span class="bold">Windows</span></a></p></td>
+
+			<td class="download-td-spacer"></td>
+
+			<td class="download-td-link"><p><a href="https://hierax.ch/download/Hierax_v20210330mac.zip"><span class="bold">Mac</span></a></p></td>
+
+			<td class="download-td-spacer"></td>
+
+			<td class="download-td-link"><p><a href="https://hierax.ch/download/Hierax_v20210330code.zip"><span class="bold">Code</span></a></p></td>
+		</tr>
+	</table>
+
+	<p>Latest Hierax version: <span class="bold">2021.03.30</span>.</p>
+
+	<p>Requirements (full details <a href="https://www.mathworks.com/de/support/requirements/previous-releases.html" target="_new">here</a>):</br>
+	· Windows 10 version 1803 or higher; Windows 7 Service Pack 1;</br>
+	· macOS Mojave (10.14), Catalina (10.15), Big Sur (11); for Apple M1 see <a href="https://www.mathworks.com/matlabcentral/answers/641925-is-matlab-supported-on-apple-silicon-macs" target="_new">here</a>;</br>
+	· <a href="https://www.mathworks.com/de/products/matlab.html" target="_new">Matlab</a> R2020b.</p>
+	-->
+	<!-- 2.END CODE FOR THE WEBSITE DOCUMENTATION VERSION OF THIS FILE -->
+
+
+<div class="intersection-space" id="INSTALLATION">&nbsp;</div>
+<h2>INSTALLATION</h2>
+
+	<p>After downloading the application and unzipping the file, please read the <span class="italic">installation instructions</span> found in the file “installation instructions.txt”. In the folder “help” you find the <span class="italic">Hierax manual</span> in file “hierax.html”, which you can display in a web browser. There is also the folder “images”, containing <span class="italic">sample papyri images</span>.</p>
+
+
+<div class="intersection-space" id="BASICS">&nbsp;</div>
+<h2 id="BASICS">BASIC CONCEPTS</h2>
+
+	<p>The purpose of the software is to enhance the legibility of papyri, a process during which the color appearance of the documents <span class="italic">changes</span>, sometimes <span class="italic">drastically</span>. This is <span class="italic">ok</span> as far as it helps decipherment. But the software is not intended for reproduction fidelity of papyri color and structure.</p>
+
+	<p>Being <span class="italic">critical</span> about image processing, however, should not stop you from using image processing. Remember that even the “original” image is only a product of physical illumination conditions, camera optics, mechanics, and electronics, software processing, perception, culture, and other factors. Consider, for example, the images in the section “Enhancement Examples” above. Despite their unnatural color, it is the red papyrus and even more the blue papyrus that reveal with most clarity annotation marks in a different ink.</p>
+
+	<p><span class="bold">The focus of the software is on the image processing capabilities and less on image viewing.</span> On one hand we want to provide users with a tool that focuses on a single task and on the other hand users have a great variety of ways to view and interact with images, and it would be difficult to satisfy all of them with a single tool.</p>
+ 
+
+<div class="intersection-space" id="WORKFLOW">&nbsp;</div>
+<h2 id="WORKFLOW">WORKFLOW</h2>
+
+	<p>1. Select the desired image processing <span class="bold">methods</span> in the Enhance tab of the Hierax user interface. Optionally specify if the images should be saved in TIFF or JPEG <span class="bold">format</span>.</p>
+
+	<p>2. Click the <span class="italic">Select And Enhance Images</span> button to select one or more <span class="bold">files</span> from the same directory and start the enhancement <span class="bold">process</span>.</p>
+
+	<p>3. Hierax <span class="bold">saves</span> the enhanced images in the folder “enhanced”, a subdirectory of the directory holding the input files.</p>
+
+	<p>4. <span class="bold">Overview</span> the enhancements for the first image in the selection list in the Overview tab.</p>
+
+	<p>5. <span class="bold">Compare</span> two images displayed side by side in the Detail tab. <span class="italic">Click the window</span> to activate keyboard interaction, then use the <span class="italic">arrow keys</span> to change the displayed images. <span class="italic">Zoom, pan, and rotate</span> images by dragging or pinching them.</p>
+
+	<p>6. <span class="bold">Group</span> images according to your criteria (utility, resemblance, etc.) by changing, in the Overview tab, the order in which images are displayed.</p>
+
+
+</div>
+<div class="interframe"></div>
+<div class="frame" id="INTERFACE">
+
+
+<!-- -------------------------------------------- -->
+<!-- 				  INTERFACE 				  -->
+<!-- -------------------------------------------- -->
+
+<h1 id="ENHANCE_TAB">Interface</h1>
+
+<h2>ENHANCE TAB</h2>
+
+	<table><tr><td>
+	<img src="images/hierax-interface-enhance.jpg" alt="Overview image of enhanced images" style="width:575px; height:452px;">
+	</td></tr></table>
+
+	<p class="note"><span class="italic">Note:</span> The <span class="bold">technical aspects</span> of the enhancement methods are explained in detail in a <a href="#REFERENCES">technical article</a>.</p>
+
+
+<!-- -------------------------------------------- -->
+<div class="intersection-space" id="METHODS">&nbsp;</div>
+<h3><span class="underline">1. METHODS</span></h3>
+
+	<p><span class="bold">Vividness</span> — Enhances the contrast between script and background without overly accentuating the papyrus texture. Vividness increases the saturation of images, which is why the papyri appear redder. (The term “vividness” designates a dimension of the CIELAB color space.)</p>
+
+	<p><span class="bold">LSV</span> (Average of Lightness and Difference of Saturation and Value) — Has good script/background contrast and smoothing of the papyrus texture. Depending on the document and image it might attenuate parts of the script.</p>
+
+	<p><span class="bold">Adapthisteq</span> (Adaptive Histogram Equalization) — Enhances the papyrus texture.</p>
+
+	<p><span class="bold">Retinex</span> — Emphasizes local differences in color, which might help legibility. Might produce a halo effect, darkening parts of the document. (“Retinex” is a contraction of “retina” and “cortex”, and designates a theory of perceptual color constancy developed by Edwin Land, the inventor of the Polaroid cameras.)</p>
+
+	<p>The different retinex variants available in Hierax result in different image quality outcomes and their usefulness is specific to document types. <span class="bold">MSRCR-RGB</span> (Multiscale Retinex with Color Restoration on RGB [red, green, and blue] channels) gives the most balanced results for most papyri images. <span class="bold">MSR-VAB</span> (MSR on Vividness, CIELAB a* [blueish–yellowish], and CIELAB b* [greenish–redish] dimensions) allows detection of subtle features, such as the presence of annotations in a different ink. The other versions might be useful for specific documents. In general, <span class="bold">V</span> (Vividness) methods are more saturated than <span class="bold">L</span> (Lightness) versions. — Try them out on ostraca or, as a bonus, on your holydays pictures from your archeological fieldwork weeks.</p>
+
+	<p class="note"><span class="italic">Note:</span> By default, Hierax applies to each method, in a preprocessing step, two additional enhancements to those mentioned above. <span class="bold">Gamut expansion</span> consists in expanding the color gamut from the sRGB IEC61966-2.1 color profile to Adobe RGB (1998), resulting in an increase in chroma (an aspect similar to saturation), which in turn enhances the legibility of the dark, achromatic ink strokes, occurring over the chromatic papyrus background. <span class="bold">Maximization of the dynamic range of the lightness channel</span> of images results in an increase of contrast between dark and light image areas.</p>
+
+
+<!-- -------------------------------------------- -->
+<div class="intersection-space" id="POSTPROCESSING">&nbsp;</div>
+<h3><span class="underline">2. POSTPROCESSING</span></h3>
+
+	<p class="note"><span class="italic">Note:</span> Each postprocessing option applies an enhancement method on a copy of the set of images enhanced with the methods selected in the Methods section. Therefore, the <span class="bold">total number of output images</span> equals that of the selected methods multiplied by the selected postprocesses and one set of not postprocessed images. E.g., if all the thirteen methods and two postprocesses are selected, the result consists in 11 × 2 enhanced images + 11 not-postprocessed enhanced images + 1 original = 34 images.</p>
+
+	<p><span class="bold">Negative</span> — Changes the polarity of the lightness. This might be useful to distinguish the boundary between papyrus and support, as well as emphasize ink traces.</p>
+
+	<p><span class="bold">Blue Negative</span> — Reveals some image aspects attenuated in the other methods.</p>
+
+	<p class="note"><span class="italic">Note:</span> Postprocessing produces results only if a processing method has been selected.</p>
+
+
+<!-- -------------------------------------------- -->
+<div class="intersection-space" id="AUXILIARIES">&nbsp;</div>
+<h3><span class="underline">3. AUXILIARIES</span></h3>
+
+	<p><span class="bold">Red Channel Only</span> — Processes only the red channel of color images. This method can be used only with the Adapthisteq and Retinex enhancement methods. The word “red” is inserted after the file name of the input image when the enhanced file is saved. See the section <a href="#INFRARED">“Infrared”</a> below for applications of this method.</p>
+
+	<p><span class="bold">Mask Background</span> — Masks the background of the papyrus before processing, which might improve the contrast. The term “background” designates here the surface on which the papyrus was placed for being photographed, such as a table. Once the processing completed, the enhanced image and the background are fused, so as to preserve the look of the input image. The artifacts introduced by background masking, typically halos around the physical edges of the papyri as detected by the algorithm, might or might not be noticeable. The mask serves to inspect the quality of masking and is saved as a PNG format file in the subdirectory “enhancement” of the input images directory.</p>
+
+	<p class="note"><span class="italic">Note:</span> The auxiliary method Mask Background is applied on a copy of all enhanced images, including postprocessed. Thus, selecting background masking multiplies the number of output images by two. You can reduce the number of images to compare by first finding the most useful images among the enhanced ones and then applying an auxiliary processing to see if the result could be further improved.</p>
+
+	<p><span class="bold">Light | Dark Background</span> — Specifies the luminance of the background on which the document was photographed (e.g., table). The parameter affects the quality of the mask.</p>
+
+	<p><span class="bold">Keep | Remove Shadows</span> — Removes the shadows of the papyrus on the background, if any, before creating the mask. Works for color images only.</p>
+
+	<p class="note"><span class="italic">Note:</span> Masking makes sense to be applied on papyri images where the background is visible. Similarly, when the shadow thrown by the document on the background is not visible, it’s not useful to deshadow the image. Preprocessing produces results only if a processing method has been selected.</p>
+
+	<p><span class="italic">Example of masking for enhancement:</span> The images below demonstrate the impact of masking and deshadowing on enhancing the legibility of a papyrus that makes a shadow over the background. Note the contrast improvement in the third and fourth images, the remnant of the shadow in the third image, its removal in the fourth image, at the price of local degradation and some contrast loss.</p>
+
+	<table>
+		<tr>
+			<td><img src="images/PSI-XII-1274-r-input.jpg" alt="Input papyrus image" style="width:285px; height:285px;"></br>Input image</td>
+
+			<td><img src="images/PSI-XII-1274-r-vividness.jpg" alt="Enhancement with Vividness method" style="width:285px; height:285px;"></br>Vividness</td>
+		</tr>
+		<tr>
+			<td><img src="images/PSI-XII-1274-r-vividness-masked-lightBackground.jpg" alt="Vividness, Masked, Light Background" style="width:285px; height:285px;"></br>Vividness, Masked, Light Background</td>
+			
+			<td><img src="images/PSI-XII-1274-r-vividness-deshadowed-masked-lightBackground.jpg" alt="Vividness, Masked, Light Background, Deshadowed" style="width:285px; height:285px;"></br>Vividness, Masked, Light Background, Deshadowed</td>
+		</tr>
+		<tr>
+			<td><img src="images/PSI-XII-1274-r-mask-lightBackground.png" alt="Mask with Light Background" style="width:285px; height:285px;"></br>Mask with Light Background</td>
+
+			<td><img src="images/PSI-XII-1274-r-mask-lightBackground-deshadowed.png" alt="Mask with Light Background and Deshadowed" style="width:285px; height:285px;"></br>Mask with Light Background and Deshadowed</td>
+		</tr>
+	</table>
+
+	<p class="credits"><span class="italic">Image credits:</span> <a href="http://www.psi-online.it/documents/psi;12;1274" target="_new">PSI XII 1274 r</a>, detail © Istituto Papirologico Vitelli, Florence, by permission.</p>
+
+	<p><span class="italic">Example of masking for segmentation:</span> The mask produced by Hierax can be used for other applications than enhancing legibility: to improve automatic segmentation of papyri fragments occurring in the same image, for example. Below is shown how papyri fragments cast shadows on the background and how the resulting binarization merges physically distinct fragments into a contiguous set of pixels. If the shadows are suppressed, using a color-invariance algorithm, then the binarization results in the correct number of papyri fragments.</p>
+
+	<table>
+		<tr>
+			<td><img src="images/deshadow-input.jpg" alt="Papyri fragments with their shadows" style="width:285px; height:285px;"></br>Papyri fragments with their shadows</td>
+
+			<td style="width:3px"></td>
+
+			<td><img src="images/deshadow-bin.jpg" alt="Binarization without removing the shadows" style="width:285px; height:285px;"></br>Binarization with shadows</td>
+		</tr>
+		<tr>
+			<td><img src="images/deshadow-invariant.jpg" alt="Shadows removed" style="width:285px; height:285px;"></br>Deshadowed image</td>
+
+			<td style="width:1px"></td>
+
+			<td><img src="images/deshadow-invariant-bin.jpg" alt="Binarization after removing the shadows" style="width:285px; height:285px;"></br>Binarization with shadows removed</td>
+		</tr>
+	</table>
+
+	<p class="credits"><span class="italic">Image credits:</span> <a href="https://www.ifao.egnet.net" target="_new">NU 2015 01218 r</a>, detail © Institut français d’archéologie orientale (Ifao), Cairo; d-scribes project, University of Basel; “Edfou au VIIe siècle” project; by permission.</p>
+
+
+
+
+<!-- -------------------------------------------- -->
+<div class="intersection-space" id="SAVE">&nbsp;</div>
+<h3><span class="underline">4. SAVE AS</span></h3>
+
+	<p>Specify the output image file format: <span class="bold">JPEG</span> and/or <span class="bold">TIFF</span>. In the JPEG <span class="bold">Quality field</span> you set a value between 1 and 100 for the images saved in the JEPG format.</p>
+
+	<p>JPEG produces smaller file sizes, but degrades image quality. This might not be perceptible, but it has an impact if you expect to further process the image. Quality is degraded with each consecutive file save. This lossy behavior does not characterize the TIFF format, although this format can generate very large files.</p>
+
+	<p>In conclusion it is strongly recommended that you use JPEG for visual inspection of images and TIFF for further processing and printing.</p>
+
+	<table>
+		<tr>
+			<td><img src="images/format_artifacts_tiff.jpg" alt="Image in TIFF format" style="width:285px; height:336px;"></br>TIFF</td>
+			
+			<td><img src="images/format_artifacts_jpeg10pct.jpg" alt="Image in JPEG format" style="width:285px; height:336px;"></br>JPEG at 10% quality</td>
+		</tr>
+		<tr>
+			<td><img src="images/format_artifacts_tiff_detail.jpg" alt="Image detail in TIFF format" style="width:285px; height:336px;"></br>Detail of TIFF</td>
+			
+			<td><img src="images/format_artifacts_jpeg10pct_detail.jpg" alt="Image detail in JPEG format" style="width:285px; height:336px;"></br>Detail of JPEG at 10% quality</td>
+		</tr>
+	</table>
+
+
+<!-- -------------------------------------------- -->
+<div class="intersection-space" id="DATA">&nbsp;</div>
+<h3><span class="underline">5. PROCESS IMAGES</span></h3>
+
+	<p><span class="bold">Select, Enhance, & Save</span> — Select one or more images for enhancement, after which the application will start the enhancement process, then save the results to the subdirectory “enhancement” of the directory from where the images were selected.</p>
+
+	<p><span class="bold">Input images</span> — Input files should be <span class="bold">three-channel color</span> or <span class="bold">single-channel grayscale</span> images. If an input image has two channels, then a zero-valued third channel is added before processing. Multi-channel images are reduced to the first three channels; this includes images with a <span class="italic">transparency channel</span> (“alpha” channel, RGBA format; such as may be the case for TIFF images). Three-channel images with identical channel values per pixel are reduced to single-channel images (these images appear to the eye as grayscale images, but contain identical RGB values).
+
+	<p><span class="bold">Grayscale</span> images are processed only by the methods <span class="italic">adapthisteq</span>, <span class="italic">retinex</span>, <span class="italic">negative</span>, and <span class="italic">mask background</span>. For grayscale images to be processed with the retinex method the choices from the drop-down menu are not taken into account; a default method is applied, <span class="italic">MSR-A</span> (achromatic), not listed in the menu.</p>
+
+	<p>Supported <span class="italic">image formats</span> are <span class="bold">BMP, GIF, HDF4, JPEG, JPEG 2000, PBM, PCX, PGM, PNG, PPM, RAS, TIFF, XWD</span> (see details <a href="https://ch.mathworks.com/help/matlab/ref/imread.html" target="_new">here</a>). The assumed <span class="italic">color profile</span> is sRGB IEC 61966-2.1, and the <span class="italic">bit depth</span> 8 bit.</p>
+
+	<p><span class="bold">Unreadable images</span> are specified in the “log unreadable images.txt”, found in the “enhanced” subfolder of the folder containing the selected input images.</p>
+
+	<p><span class="bold">Output images</span> — Output file names contain the file name of the input file and its extension, followed by the name of the enhancement method used to generate the file. For example, the input file “image.jpg” enhanced with the vividness method and save option TIFF is saved as “image_jpg-vividness.tif”.</p>
+
+
+<!-- -------------------------------------------- -->
+<div class="intersection-space" id="HELP">&nbsp;</div>
+<h3><span class="underline">HELP</span></h3>
+
+	<p><span class="bold">Online</span> — Read the online Hierax manual. Its contents concerns the latest Hierax release, and may differ from the user’s software version.</p>
+	
+	<p><span class="bold">Local</span> — A version of the documentation is shipped with the software, so that the documentation you read concerns your specific software version. To read it, please open in a web browser the file <span class="italic">hierax.html</span>, found in the folder <span class="italic">help</span>, located where you unzipped the Hierax software file.</p>
+
+
+<!-- -------------------------------------------- -->
+<div class="intersection-space" id="OVERVIEW_TAB">&nbsp;</div>
+<h2>OVERVIEW TAB</h2>
+
+	<table><tr><td>
+	<img src="images/hierax-interface-overview-interleaved.jpg" alt="Overview image of enhanced images" style="width:575px; height:452px;">
+	</td></tr></table>
+
+	<p>Provides an <span class="bold">overview</span> of all enhancement methods applied to the <span class="italic">first image</span> selected by the user in the Enhancement tab. The original is the first image of the first row.</p>
+
+	<p><span class="bold">Save Overview</span> — Saves a copy of the overview image in the same directory, named “enhancement”, as the enhanced images. If the overview images result from the user having clicked the “Load Images” button, then they are saved in the subdirectory “enhancement” of the directory where the loaded images are located. The images are saved in the formats specified in the Save As panel of the Enhance tab.</p>
+
+	<p><span class="bold">View Images</span> — Load images in the viewer without enhancing them.</p>
+
+	<p><span class="bold">Information & Selection</span> — Click the overview image to display a datatip specifying the label of the image tile that was clicked. The label is either the names of the enhancement methods, if the mosaic is obtained from an enhancement process, or the image file name, if the images were uploaded. The clicked image becomes the active image in the right hand panel of the Detail tab.</p>
+
+
+<!-- -------------------------------------------- -->
+<div class="intersection-space" id="DETAIL_TAB">&nbsp;</div>
+<h2>DETAIL TAB</h2>
+
+	<table><tr><td>
+	<img src="images/hierax-interface-detail-lsv.jpg" alt="Overview image of enhanced images" style="width:575px; height:452px;">
+	</td></tr></table>
+
+	<p>Allows <span class="bold">side-by-side, synchronous comparison</span> of all applied enhancement methods. Lets you <span class="bold">zoom</span>, <span class="bold">pan</span>, and <span class="bold">rotate</span> images, as well as <span class="bold">change the order</span> in which images are displayed.</p>
+
+
+<!-- -------------------------------------------- -->
+<div class="intersection-space" id="INTERACTION">&nbsp;</div>
+<h3><span class="underline">1. INTERACTION</span></h3>
+
+	<p>You can use gestures, the mouse, and the keyboard to interact with the images.</p>
+
+	<p class="note"><span class="italic">Note:</span> The software reaction time to user inputs decreases with increasing image size. Use images saved with <span class="italic">higher JPEG compression levels</span> to increase interaction speed or <span class="italic">segment the images</span> into several files. In case images <span class="italic">vanish</span> during panning, press the arrow-keys to make them reappear.</p>
+
+	<p><span class="bold">Zoom</span> — Press the zoom button to activate the zoom functionality, and then <span class="italic">click on an image</span> to zoom into it. <span class="italic">Press Shift</span> while clicking to zoom out. <span class="italic">Double click</span> to reset the zoom level. Use the <span class="italic">up and down arrow keys</span> to zoom in and out, while the zoom is active.</p>
+
+	<p class="note"><span class="italic">Note:</span> There are two other interaction modalities, but they both are discouraged. <span class="italic">Drag a rectangle</span> over the image to zoom a selected area. <span class="italic">Pinch with two fingers</span> the image to zoom in and out.</p>
+
+	<p><span class="bold">Pan</span> — Press the pan button to activate the pan interaction, then <span class="italic">drag with two fingers</span> the image or use the <span class="italic">arrow keys</span> to move the image. You can reset the view by <span class="italic">double clicking</span> the image.</p>
+
+	<p><span class="bold">Rotate</span> — Press the rotate button to activate image rotation, then use the <span class="italic">left and right arrow keys</span> to rotate the image. <span class="bold">Flip</span> the images upside-down with the <span class="italic">up and down arrow keys</span>.</p>
+	
+	<p><span class="bold">Reset</span> — Press the reset button to reset the image view to its original state. If any of the tools are active, you can achieve the same result by <span class="italic">double clicking</span> the image.</p>
+
+	<p><span class="bold">Next</span> — With the <span class="italic">left and right arrows</span> you scroll up and down through images on the left and with the <span class="italic">up and down arrows</span> through the images on the right.</p>
+
+	<p><span class="bold">Full screen</span> — <span class="italic">Double-click the window top-bar</span> or <span class="italic">press the maximize button</span> on the left side of the bar to get into full screen modus. <span class="italic">Double tap with two fingers</span> one of the images to enlarge it to the window size.</p>
+
+
+<!-- -------------------------------------------- -->
+<div class="intersection-space" id="ORDER">&nbsp;</div>
+<h3><span class="underline">2. ORDER</span></h3>
+
+	<p>You can change the order in which the images appear in the Overview and Detail tabs. For example, group most useful images at the top of the list.</p>
+
+	<p><span class="bold">To Top, Up, Down, To Bottom</span> — Move individual images up and down the virtual image stack and in the dropdown lists.</p>
+
+	<p><span class="bold">Sequential</span> — Group all basic methods together (Vividness, LSV, Adapathisteq, Retinex), followed by the basic methods combined with each of the postprocessing methods in turn (Negative, Blue Negative), and finally followed by combinations with the auxiliary methods. This functionality is not available when images were uploaded via the Overview tab.</p>
+
+	<p><span class="bold">Interleaved</span> — Interleave basic methods with postprocessing and auxiliary methods. This functionality is not available when images were uploaded via the Overview tab.</p>
+
+	<table><tr>
+		<td><img src="images/hierax-interface-overview-sequential.jpg" alt="Overview image of enhanced images" style="width:285px; height:224px;"></br>Sequential Image Order</td>
+		<td style="width:1px"></td>
+		<td><img src="images/hierax-interface-overview-interleaved.jpg" alt="Overview image of enhanced images" style="width:285px; height:224px;"></br>Interleaved Image Order</td>
+	</tr></table>
+
+
+</div>
+<div class="interframe"></div>
+<div class="frame" id="USAGE">
+
+
+<!-- -------------------------------------------- -->
+<!-- 				     VARIA 				  	  -->
+<!-- -------------------------------------------- -->
+
+<h1 id="TIPS">Usage</h1>
+
+<h2>TIPS</h2>
+
+	<p><span class="bold">Process images with all available methods.</span> The quality of enhancement changes with <span class="italic">document</span> and <span class="italic">image quality</span>; each method can reveal <span class="italic">different features</span> for <span class="italic">different uses</span>; users have <span class="italic">different preferences</span> about which methods to use.</p>
+
+	<p>If you wish to <span class="bold">compare</span> more than two different images run two instances of Hierax.</p>
+
+	<p>You can <span class="bold">cancel</span> the enhancement process by pressing the “×” button on the waitbar.</p>
+
+	<p>If the output images are not looking right, e.g., all black or all white, it might have to do with the <span class="bold">image format</span>. Try to save it in another format, reduce the bit depth to 8 bit, or check that there are no layers in the TIFF files.</p>
+
+	<p>If you whish to <span class="bold">convert to grayscale</span> an RGB image taken in visible light, then (for best results) convert the image to the perceptual color space L*a*b* in an image editing software, and then save the L* (lightness) channel alone to a grayscale image. Make sure the output image contains a single channel, instead of three (in which case the image may <span class="italic">appear</span> gray, but the <span class="italic">numerical values</span> for the same pixel may be different between the red, green, and blue channels, and thus, the image becomes unwittingly <span class="bold">quasi-achromatic</span>).</p>
+
+
+<div class="intersection-space" id="IMAGE_QUALITY">&nbsp;</div>
+<h3><span class="underline">IMAGE QUALITY</span></h3>
+
+	<p>Improve the legibility of images by <span class="bold">maximizing the brightness</span> of your display and <span class="bold">adjusting the contrast</span>. Also, <span class="bold">calibrate the display</span>. On Mac, for example, use the Display Calibrator Assistant accessed from System Preferences > Display > Color > Calibrate. To calibrate the display on Windows do: click the Window icon in the status bar > Expand the menu icon > Settings > Display > Extended Display Options > Color Management > Color Management > Extended > Calibrate Display.</p>
+
+	<p>Further improvements may result by changing the <span class="bold">color profile</span> of your display. We suggest to choose sRGB IEC61966-2.1, or any other profile that increases the saturation of the papyrus, without distorting too much its color appearance. — To change the color profiles on Mac, go to Mac Preferences > Display > Color. To set the color profile on Windows do: click the Window icon in the status bar > Expand the menu icon > Settings > Display > Extended Display Options > Color Management > Color Management > Devices > check Use Custom Settings for this Device > Add > select a color profile > OK > Use As Standard Profile.</p>
+
+	<table>
+		<tr>
+			<td><img src="images/color-profile-srgb.jpg" alt="Image appearance in simulated sRGB color space" style="width:285px; height:288px;"></td>
+			<td style="width:1px"></td>
+			<td><img src="images/color-profile-adobergb.jpg" alt="Image appearance in simulated Adobe RGB color space" style="width:285px; height:288px;"></td>
+		</tr>
+	</table>
+
+	<p class="legend">Simulated appearance of papyrus on a display with sRGB IEC61966-2.1 color profile (left) and Adobe RGB (1998) (right). The left-hand image appears more contrasted.</p>
+
+	<p>You might diminish the visibility of papyrus fibers and gaps between them by <span class="bold">rotating the image by 45°</span> or any angle that make these features diagonal in respect to the observer.</p>
+
+
+<div class="intersection-space" id="CROPPING">&nbsp;</div>
+<h3><span class="underline">CROPPING</span></h3>
+
+	<p>Enhancement quality might be improved by cropping the image to retain only the papyrus, in case other artifacts are present (and masking cannot remove them). Below is shown an example of enhancing an infrared image with the retinex method, before and after cropping.</p>
+
+	<table>
+		<tr>
+			<td><img src="images/P.Bas.27_b-R_IR-registered-red-channel.jpg" alt="Infrared image" style="width:285px; height:467px;"></br>Infrared image</td>
+
+			<td style="width:1px"></td>
+			
+			<td><img src="images/P.Bas.27_b-R_IR-registered-red-channel_tif-retinex-MSR-A.jpg" alt="Infrared image enhanced with the retinex MSR-A method" style="width:285px; height:467px;"></br>Infrared image enhanced with the retinex MSR-A method</td>
+		</tr>
+		<tr>
+			<td><img src="images/P.Bas.27_b-R_IR-registered-red-channel-cropped.jpg" alt="Cropped infrared image" style="width:285px; height:372px;"></br>Cropped infrared image</td>
+
+			<td style="width:1px"></td>
+			
+			<td><img src="images/P.Bas.27_b-R_IR-registered-red-channel-cropped_tif-retinex-MSR-A.jpg" alt="Cropped infrared image enhanced with the retinex MSR-A method" style="width:285px; height:372px;"></br>Cropped infrared image enhanced with the retinex MSR-A method</td>
+		</tr>
+	</table>
+
+	<p class="credits"><span class="italic">Image credits</span> — P.Bas. inv 27, <a href="https://www.unibas.ch/de/Universitaet/Administration-Services/Generalsekretariat/Archive-Sammlungen/Wissenschaftliche-Sammlungen/Alphabetisch-sortiert/Universitaetsbibliothek--Papyrussammlung.html" target="_new">University of Basel Library</a>, infrared photo by Peter Fornaro.</p>
+
+
+<div class="intersection-space" id="DSTRETCH">&nbsp;</div>
+<h3><span class="underline">COMPARISON WITH DSTRETCH</span></h3>
+
+	<p><a href="https://www.dstretch.com/" target="_new">DStretch</a> is an image enhancement software developed by Jon Harman for improving the legibility of petroglyphs drawn with color pigments. DStretch has also become a widely used by papyrologists. Hierax and DStretch are, however, complementary tools: the former is best suited for enhancing texts written on papyri, as well as monochrome texts on ostraca, while the latter gives excellent results with multicolored documents.</p>
+
+	<p>The figures below illustrate some of the differences. These are due to the goals of the mathematical methods used in the respective software: to preserve naturalness, reduce background noise, and uniformize contrast in the case of Hierax, and increase the distinctiveness of entities defined by different colors in the case of DStretch.</p>
+
+	<table>
+		<tr>
+			<td style="padding-right:1px;"><img src="images/epigraphic-original-half.jpg" alt="Hieratic script on limestone" style="width:191px; height:655px;"></td>
+			<td style="padding-right:1px;"><img src="images/epigraphic-retinex-msrcr-rgb-half.jpg" alt="Hieratic script on limestone enhanced with the method Retinex MSRCR-RGB" style="width:191px; height:655px;"></td>
+			<td><img src="images/epigraphic-dstretch-lbk-half.jpg" alt="Hieratic script on limestone enhanced with the DStretch software, option LBK" style="width:191px; height:655px;"></td>
+		</tr>
+		<tr>
+			<td colspan="3" style="text-align: left;">Left: input image; middle: Retinex MSRCR-RGB; right: DStretch LBK. Note how Retinex uniformizes the contrast, while DStretch generates heavy chromatic noise.</td>
+		</tr>
+			<td colspan="3" style="padding-top: 20px;"></td>
+		</tr>
+		<tr>
+			<td style="padding-right:1px;"><img src="images/SanBorjita3174.jpg" alt="Petroglyph image" style="width:191px; height:288px;"></td>
+			<td style="padding-right:1px;"><img src="images/SanBorjita3174-retinex-MSRCR-RGB.jpg" alt="Petroglyph image enhanced with the method Retinex MSRCR-RGB" style="width:191px; height:288px;"></td>
+			<td><img src="images/SanBorjita3174-DStretch-cov-Yuv.jpg" alt="Petroglyph image enhanced with the DStretch software, option cov-Yuv" style="width:191px; height:288px;"></td>
+		</tr>
+		<tr>
+			<td colspan="3" style="text-align: left;">Left: input image; middle: Retinex MSRCR-RGB; right: DStretch cov-Yuv. Retinex fails to enhance the middle human shape, while DStretch achieves excellent discriminance between the shapes painted with various pigments.</td>
+		</tr>
+	</table>
+
+	<p class="credits"><span class="italic">Image credits</span> — Top: <a href="https://commons.wikimedia.org/wiki/File:Heratic_script_limestone.jpg" target="_new">Wikimedia Commons contributor</a>; bottom: <a href="https://www.dstretch.com/" target="_new">Jon Harman</a></p>
+
+
+<div class="intersection-space" id="INFRARED">&nbsp;</div>
+<h3><span class="underline">INFRARED</span></h3>
+
+	<p>It is possible to use Hierax to enhance infrared images, not only images taken in visible light. If the output of the infrared camera is a <span class="italic">single-channel grayscale image</span>, then use retinex for enhancement (the <span class="bold">MSR-A</span> method, not visible in the list, will be selected automatically for grayscale images when the retinex option is selected). More usually the camera output will be a <span class="italic">three-channel color image</span>, in which case it may be best to convert it to grayscale by selecting the <span class="bold">Red Channel Only</span> option from the Enhance tab, and then process it in Hierax with <span class="bold">retinex</span>.</p>
+
+	<p>Comparisons of different enhancement methods are presented below. It can be seen that (at least for documents of this types of ink and substrate), enhancing the red channel alone is equivalent to or superior to more sophisticated methods.</p>
+
+	<p class="note">For more information on infrared photography for papyrology see Adam Bülow-Jacobsen (2008), “Infra-red Photography of Ostraca and Papyri”, <span class="italic">Zeitschrift für Papyrologie und Epigraphik</span>, 165: 175–185; and Gregory Bearman and William A. Christens-Barry (2009), “Spectral Imaging of Ostraca”, <span class="italic">Palarch’s Journal of Archaeology of Egypt/Egyptology</span>, 6 (7): 1-20.</p>
+
+	<table>
+		<tr>
+			<td><img src="images/P.Bas.27_b-R_IR.jpg" alt="" style="width:285px; height:441px;"></br>Infrared three-channel image</td>
+
+			<td style="width:1px"></td>
+			
+			<td><img src="images/P.Bas.27_b-R_IR-R.jpg" alt="" style="width:285px; height:441px;"></br>Red channel</td>
+		</tr>
+		<tr>
+			<td><img src="images/P.Bas.27_b-R_IR-R-manual-levels-Photoshop-Atanasiu.jpg" alt="" style="width:285px; height:441px;"></br>Manual level adjustment</br> of the red channel</td>
+
+			<td style="width:1px"></td>
+			
+			<td><img src="images/P.Bas.27_b-R_IR_tif-red-retinex-MSR-A.jpg" alt="" style="width:285px; height:441px;"></br>Retinex MSR-A</br> of the red channel</td>
+		</tr>
+		<tr>
+			<td><img src="images/P.Bas.27_b-R_IR-PCA1-max-mean-RGB(IR)_tif-retinex-MSR-A.jpg" alt="" style="width:285px; height:441px;"></br>First PCA component</br> of three-channel image</td>
+
+			<td style="width:1px"></td>
+			
+			<td><img src="images/P.Bas.27_b-R_IR-wavelets-max-mean-RGB(IR)_tif-retinex-MSR-A.jpg" alt="" style="width:285px; height:441px;"></br>Wavelets max-mean fusion</br> of three-channel image</td>
+		</tr>
+		<tr>
+			<td><img src="images/P.Bas.27_b-R_IR_tif-retinex-MSRCR-RGB.jpg" alt="" style="width:285px; height:441px;"></br>Retinex MSRCR-RGB</br> of three-channel image</td>
+
+			<td style="width:1px"></td>
+			
+			<td><img src="images/P.Bas.27_b-R_IR-DStretch-LAB.jpg" alt="" style="width:285px; height:441px;"></br>DStretch LAB</br> of three-channel image</td>
+		</tr>
+	</table>
+
+	<p class="credits"><span class="italic">Image credits</span> — P.Bas. inv 27, <a href="https://www.unibas.ch/de/Universitaet/Administration-Services/Generalsekretariat/Archive-Sammlungen/Wissenschaftliche-Sammlungen/Alphabetisch-sortiert/Universitaetsbibliothek--Papyrussammlung.html" target="_new">University of Basel Library</a>, infrared photo by Peter Fornaro.</p>
+
+
+<div class="intersection-space" id="BINARIZATION">&nbsp;</div>
+<h3><span class="underline">BINARIZATION</span></h3>
+
+	<p>A secondary application of Hierax is to enhance images in support of image processing and machine vision. For example, you can enhance images with Hierax, and then binarize them with other software. The images below illustrate how different enhancement methods produce different binarization results. The same “subjectivity” has been observed in the heterogenous preferences of human participants in the user study conducted to evaluate the Hierax methods.</p>
+
+	<table>
+		<tr>
+			<td style="padding-bottom: 1px;"><img src="images/Abraamios_4-input.png" alt="" style="width:191px; height:191px;"></td>
+			<td style="width:1px"></td>
+			<td style="padding-bottom: 1px;"><img src="images/Abraamios_3-input.png" alt="" style="width:191px; height:191px;"></td>
+			<td style="width:1px"></td>
+			<td style="padding-bottom: 1px;"><img src="images/Abraamios_1-input.png" alt="" style="width:191px; height:191px;"></td>
+		</tr>
+		<tr>
+			<td style="padding-bottom: 1px; border:solid 1px #0F0;"><img src="images/Abraamios_4-vividness.png" alt="" style="width:189px; height:189px;"></td>
+			<td style="width:1px"></td>
+			<td style="padding-bottom: 1px;"><img src="images/Abraamios_3-vividness.png" alt="" style="width:191px; height:191px;"></td>
+			<td style="width:1px"></td>
+			<td style="padding-bottom: 1px;"><img src="images/Abraamios_1-vividness.png" alt="" style="width:191px; height:191px;"></td>
+		</tr>
+		<tr>
+			<td style="padding-bottom: 1px;"><img src="images/Abraamios_4-lsv.png" alt="" style="width:191px; height:191px;"></td>
+			<td style="width:1px"></td>
+			<td style="padding-bottom: 1px; border:solid 1px #0F0;"><img src="images/Abraamios_3-lsv.png" alt="" style="width:189px; height:189px;"></td>
+			<td style="width:1px"></td>
+			<td style="padding-bottom: 1px;"><img src="images/Abraamios_1-lsv.png" alt="" style="width:191px; height:191px;"></td>
+		</tr>
+		<tr>
+			<td style="padding: 0px;"><img src="images/Abraamios_4-msrcr-rgb.png" alt="" style="width:191px; height:191px;"></td>
+			<td style="width:1px"></td>
+			<td style="padding: 0px;"><img src="images/Abraamios_3-msrcr-rgb.png" alt="" style="width:191px; height:191px;"></td>
+			<td style="width:1px"></td>
+			<td style="padding: 0px; border:solid 1px #0F0;"><img src="images/Abraamios_1-msrcr-rgb.png" alt="" style="width:189px; height:189px;"></td>
+		</tr>
+		<tr>
+			<td colspan="5" style="padding-top: 6px; text-align: left;">1st row: input image; 2nd row: binarization of the input image enhanced with the vividness method; 3rd row: binarization of lsv; 4th row: binarization of retinex MSRCR-RGB. — Best binarizations: 1st column: vividness (2nd row); 2nd column: lsv (3rd row); 3rd column: retinex (4th row).</td>
+		</tr>
+	</table>
+
+	<p class="credits"><span class="italic">Image credits</span> — The Bank of Papyrus Images of Byzantine Aphrodite <a href="http://bipab.aphrodito.info" target="_new">BIPAb</a>.</p>
+
+
+
+<!-- -------------------------------------------- -->
+<div class="intersection-space" id="BEST_METHODS">&nbsp;</div>
+<h2>BEST METHODS</h2>
+
+	<p>If all basic, postprocessing, and auxiliary enhancement methods are selected, the output is about 66 images, which makes their appraisal impractical. Which ones to chose?</p>
+
+	<p class="recommendation"><span class="italic">As a basic rule several enhanced images should be considered for use, since they vary with document and reproduction quality, provide different insights, and are appropriate for different user behaviors and tasks. While some general predictions may be made about which images to chose, selection is best done on a case-by-case basis.</span></p>
+
+	<p><span class="bold">Vividness</span> is a top choice, since it changes the least the original image, while improving legibility.</p>
+
+	<p><span class="bold">LSV</span> is to be provided only if it does not introduces visible distortions.</p>
+
+	<p><span class="bold">Adapthisteq</span> has been found to be preferred by some users, given that it is a method that enhances the physical structure of the papyrus (= fibers and gaps). This is useful for the analysis of papyrus production and quality.</p>
+
+	<p>At least one of the <span class="bold">Retinex</span> enhanced images may be provided by default, since it equalized very well dark and light papyrus areas and differentiates by hue between different inks and between stains and papyrus. Usually this is the <span class="bold">MSRCR-RGB</span> method, an all-purpose enhancement.</p>
+
+	<p><span class="bold">Negative</span> and <span class="bold">Blue Negative</span> should also be default methods, since they were ranked higher than other by users participating in an evaluation study. In particular <span class="bold">MSRCR-RGB Blue Negative</span> has often better legibility than the positive contrast. <span class="bold">MSR-L Negative</span> produces strong script–background contrast and attenuates ink variation; as a consequence, the method is useful to read longer texts, as opposed to carefully deciphering of characters.</p>
+
+	<p><span class="bold">Red Channel Only</span> should be used for three-channel infrared images, as usually it improves legibility. It may also be useful for reproduction of objects with strong red hue (such as ostraca).</p>
+
+	<p>Images obtained with <span class="bold">Mask Background</span> should be provided to users only if they really improve legibility. Don’t forget to select the appropriate option between <span class="bold">Light Background</span> and <span class="bold">Dark Background</span>, depending on the luminance of the surface on which the papyrus was photographed.</p>
+
+	<p><span class="bold">Remove Shadows</span> makes sense only if the papyrus generates a shadow on the supporting surface.</p>
+
+	<p>If masking is applied, then the <span class="bold">mask image</span> generated by Hierax should always be provided, to make any issues explicit.</p>
+
+
+<div class="intersection-space" id="CASE_STUDY">&nbsp;</div>
+<h3><span class="underline">CASE STUDY</span></h3>
+
+	<p>As a practical example, we mention the enhancement methods adopted for the 70 papyri (106 images) of the <a href="https://ub.unibas.ch/en/historical-holdings/manuscripts/" target="_new">Library of the University of Basel</a>, Switzerland, for its forthcoming online papyri catalog. The selection of enhancement methods was done . . .</p>
+
+	<ul>
+		<li>— by a single selector,</li>
+		<li>— for their usefulness,</li>
+		<li>— based on a case-by-case analysis among all possible combinations,</li>
+		<li>— on a sample of 23 papyri,</li>
+		<li>— according to some enhancement characteristics (e.g., enhance script legibility, attenuate papyrus structure, attenuate smudges, increase distinctiveness between inks),</li>
+		<li>— for a variety of most likely tasks (e.g., scholarly transcription, paleography, use of papyri for illustrative purposes),</li>
+		<li>— for which they might be used by the potential users of the online catalog (e.g., expert papyrologists, students, general public).</li>
+	</ul>
+
+	<p>Beyond the non-enhanced image, the selected enhancement methods are, in order of utility: <span class="bold">MSRCR-RGB, Vividness, MSRCR-RGB Blue Negative, MSR-L Negative</span>.</p>
+
+	<p>It is important to stress that this choice might not apply to other papyri. A particularity of this collection, which affects the choice of enhancement methods, is that the physical documents are in a good state of preservation and the digital reproductions are of excellent quality. Also, the method ranking results from the fact that an automated solution was sought, due to the large number of images and limited resources. Otherwise, there was a marked heterogeneity in respect to which methods are most useful for a specific document image and task. This is illustrated by the spread of dots in the following picture, where the rows correspond to methods and the columns to documents, organized by tasks, while the dots mark optimal method/task combinations.</p>
+
+	<a href="images/UBL-method-selection-large.png" target="_new" class="image-link"><img src="images/UBL-method-selection.png" alt="Table showing the utility of enhancement methods for various documents and tasks, for the papyri collection of the Library of the University of Basel." style="width:575px; height:369px;"></a>
+
+
+
+<!-- -------------------------------------------- -->
+<div class="intersection-space" id="SAMPLE_IMAGES">&nbsp;</div>
+<h2>SAMPLE IMAGES</h2>
+
+	<p>The folder <span class="italic">images</span> of the Hierax ZIP file contains sample papyri images. Please consider the copyrights in the <span class="italic">hierax_images_copyrights.txt</span> file.</p>
+
+
+<div class="intersection-space" id="TROUBLESHOOTING">&nbsp;</div>
+<h2>TROUBLESHOOTING</h2>
+
+	<p>If the file <span class="italic">[Program Files|Applications]/Hierax/application/hierax_settings.json</span> in the <span class="italic">/Hierax/application/</span> folder gets corrupted, delete it.</p>
+
+	<p>Large images might <span class="bold">vanish</span> during panning using the mouse or the trackpad. To make them reappear, pan using the arrow-keys.</p>
+
+
+<div class="intersection-space" id="REFERENCES">&nbsp;</div>
+<h2>REFERENCES</h2>
+	
+	<p>The technical aspects of the image processing methods used in Hierax and their evaluation through a user experiment are described in the following paper: Vlad Atanasiu, Isabelle Marthot-Santaniello, “<a href="./publications/Atanasiu,_Marthot-Santaniello_2021_-_Legibility_enhancement_of_papyri.pdf" target="_new">Legibility Enhancement of Papyri Using Color Processing and Visual Illusions: A Case Study in Critical Vision</a>”, International Journal on Document Analysis and Recognition (IJDAR), accepted for publication.</p>
+
+<div class="intersection-space" id="IDENTITY">&nbsp;</div>
+<h2>IDENTITY</h2>
+
+	<p>The software name, Hierax, means “hawk” or “falcon” in Ancient Greek (ἱέραξ), and refers to several Egyptian deities, the most famous ones being Horus and Ra. The “Eye of Horus”, <span class="italic">wadjet</span>, is an ancient symbol of protection, linked with the idea of action, since the word <span class="italic">irt</span> means both “eye” and “one who does”. It has therefore been chosen for this software that aims to offer “active vision”.</p>
+
+	<p>The falcon drawing on the Hierax interface is the <a href="https://en.wikipedia.org/wiki/Gardiner%27s_sign_list" target="_new">“hwr” hieroglyph</a> (Gardiner G5, Unicode U+13143, from the <a href="https://mjn.host.cs.st-andrews.ac.uk/egyptian/fonts/newgardiner.html" target="_new">New Gardiner</a> font by Mark-Jan Nederhof).</p>
+
+	<p>The papyrus logo a the very top of this page represents a falcon guiding a human. (Credits: “Nesim's Book of the Dead”, c. 1000 BCE, Egypt; <a href="http://www.mcah.ch/en/home/" target="_new">Cantonal Museum of Archaeology and History</a>, Lausanne, Switzerland; photo by Vlad Atanasiu.)</p>
+
+<div class="intersection-space" id="UPDATES">&nbsp;</div>
+<h2>UPDATES</h2>
+
+	<p>2021.03.30</br>
+	— Code updated to Matlab 2021a.</p>
+
+	<p>2021.01.29</br>
+	— Link from interface to website.</br>
+	— Documentation updates.</p>
+
+	<p>2020.12.21</br>
+	— Handle multi-channel images.</br>
+	— Record unreadable images.</p>
+
+	<p id="UPDATES-MORE-SELECTOR"><span class="linkStyleImitation" onclick="displayMoreContent('UPDATES-MORE-SELECTOR','UPDATES-MORE-CONTENT')">View more updates ...</span></p>
+	<div id="UPDATES-MORE-CONTENT" style="display: none;">
+
+	<p>2020.12.17</br>
+	— Hierax website opens.</br>
+	— Name change from Ninox to Hierax.</p>
+
+	<p>2020.12.10</br>
+	— Improved layout of interface objects.</br>
+	— Enhancement of only the red channel of an image.</br>
+	— Minor performance and interface updates.</br>
+	— Extended the documentation.</p>
+
+	<p>2020.11.22</br>
+	— Added timer.</br>
+	— Extended the documentation.</p>
+
+	<p>2020.11.07</br>
+	— Improved user interface readability.</br>
+	— Extended the documentation.</p>
+
+	<p>2020.11.03</br>
+	— First public release.</br>
+	— Programmed in Matlab 9.9 (R2020b), Update 1.</p>
+
+	<p>2020.10.14</br>
+	— Improved interaction with the images.</p>
+
+	<p>2020.10.11</br>
+	— Improved interaction with the images.</p>
+	
+	<p>2020.10.06</br>
+	— Added option to change the display order of images.</br>
+	— Added image rotate tool.</br>
+	— Replaced interaction tools hovering over image to static toolbar.</br>
+	— Now each option in the Auxiliaries tab creates a new set of images.</br>
+	— Now the overview can be saved.</br>
+	— Added option to set JPEG quality.</br>
+	— Improved interaction with the images.</br>
+	— Improved interface readability.</br>
+	— Improved the documentation.</br>
+	— Removed various bugs.</p>
+
+	<p>2020.07.01</br>
+	— Creation</p>
+	
+	</div>
+
+</div>
+
+
+<div class="frame-tail">
+
+	<img src="brand/tailer-wings.jpg" alt="Picture of the wings of an antique Greek sphinx statue" style="width:725px; height:256px;">
+
+</div>
+
+</body>
+</html>
