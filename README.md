@@ -1,5 +1,7 @@
 # Hierax
 
+![Different papyri image enhancement made with the Hierax software](HieraxPrimaryScreenShot-1024px.jpg)
+
 The purpose of this software is to enhance the legibility of papyri for text edition and publication. It consists of an image processing tool and an image viewer.
 
 ## HIGHLIGHTS
