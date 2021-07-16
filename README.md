@@ -12,8 +12,11 @@ The purpose of this software is to enhance the legibility of papyri for text edi
 
 — **Complementary to other software**, such as DStretch and Photoshop.
 
-## DOCUMENTATION
+## CONTENTS
 
-Documentation available online at [hierax.ch](https://hierax.ch).
+* **app**: Matlab (R2020b) app
+* **code**: Matlab (R2020b) source code
+* **help**: documentation (see also [hierax.ch](https://hierax.ch))
+* **images**: smaple papyri images
 
-Technical journal article at [arxiv.org](https://arxiv.org/abs/2104.01106).
+* Technical journal article at [arxiv.org](https://arxiv.org/abs/2104.01106).
