@@ -1,0 +1,477 @@
+html {
+	height: 100%;
+	width: 100%;
+	margin: 0px;
+	text-align: center;
+}
+
+body {
+	position: relative;
+	top: 0px;
+	margin: 0px auto 0px auto;
+	border: 0pt;
+	padding: 0 0 120pt 0;
+	display: block;
+	overflow: auto;
+	max-width: 725px;
+	background-color: #F0F0F0;
+	font-family: "Fira Sans Regular", Verdana, Helvetica, "Arial Unicode MS", Arial, sans-serif;
+	font-size: 12px;
+	line-height: 20px;
+	color: #000;
+	text-align: left;
+}
+
+.frame-splash {
+	max-width: 575px;
+	border-top: 5px solid #ff6005; /* violet 5520B0, orange ff6005 */
+	padding: 36pt 0px 0pt 0px;
+	background-color: #FFF;
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+
+.frame-first {
+	max-width: 575px;
+	border-top: 0px solid #ff6005; /* violet 5520B0, orange ff6005 */
+	padding: 0pt 75px 120pt 75px;
+	background-color: #FFF;
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+
+.frame {
+	max-width: 575px;
+	border-top: 5px solid #ff6005; /* violet 5520B0, orange ff6005 */
+	padding: 36pt 75px 120pt 75px;
+	background-color: #FFF;
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+
+.interframe {
+	height: 72pt;
+	background-color: #F0F0F0;
+}
+
+.frame-tail {
+	max-width: 725px;
+	border-top: 1px solid #5520B0; /* violet 5520B0, orange ff6005 */
+	padding: 0px 0px 0pt 0px;
+	margin: 0 0 120pt 0;
+	background-color: #FFF;
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+
+.intersection-space {
+	height: 36pt;
+}
+
+@font-face {
+	font-family: 'Fjalla One Regular';
+	src: url('./fonts/fjallaone-regular.eot'); /* IE9 Compat Modes */
+	src: url('./fonts/fjallaone-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+		url('./fonts/fjallaone-regular.woff') format('woff'), /* Modern Browsers */
+		url('./fonts/fjallaone-regular.woff2') format('woff2'); /* Modern Browsers */
+	font-style: normal;
+	font-weight: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Merriweather Black';
+	src: url('./fonts/merriweather-black.eot');
+	src: url('./fonts/merriweather-black.eot?#iefix') format('embedded-opentype'),
+		url('./fonts/merriweather-black.woff') format('woff'),
+		url('./fonts/merriweather-black.woff2') format('woff2');
+	font-style: normal;
+	font-weight: 900;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Merriweather BlackItalic';
+	src: url('./fonts/merriweather-blackitalic.eot');
+	src: url('./fonts/merriweather-blackitalic.eot?#iefix') format('embedded-opentype'),
+		url('./fonts/merriweather-blackitalic.woff') format('woff'),
+		url('./fonts/merriweather-blackitalic.woff2') format('woff2');
+	font-style: italic;
+	font-weight: 900;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Fira Sans Regular';
+	src: url('./fonts/firasans-regular.eot');
+	src: url('./fonts/firasans-regular.eot?#iefix') format('embedded-opentype'),
+		url('./fonts/firasans-regular.woff') format('woff'),
+		url('./fonts/firasans-regular.woff2') format('woff2');
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Fira Sans Italic';
+	src: url('./fonts/firasans-italic.eot');
+	src: url('./fonts/firasans-italic.eot?#iefix') format('embedded-opentype'),
+		url('./fonts/firasans-italic.woff') format('woff'),
+		url('./fonts/firasans-italic.woff2') format('woff2');
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Fira Sans SemiBold';
+	src: url('./fonts/firasans-semibold.eot');
+	src: url('./fonts/firasans-semibold.eot?#iefix') format('embedded-opentype'),
+		url('./fonts/firasans-semibold.woff') format('woff'),
+		url('./fonts/firasans-semibold.woff2') format('woff2');
+	font-style: normal;
+	font-weight: 600;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Fira Sans SemiBoldItalic';
+	src: url('./fonts/firasans-semibolditalic.eot');
+	src: url('./fonts/firasans-semibolditalic.eot?#iefix') format('embedded-opentype'),
+		url('./fonts/firasans-semibolditalic.woff') format('woff'),
+		url('./fonts/firasans-semibolditalic.woff2') format('woff2');
+	font-style: italic;
+	font-weight: 600;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Fira Sans ExtraLight';
+	src: url('./fonts/firasans-extralight.eot');
+	src: url('./fonts/firasans-extralight.eot?#iefix') format('embedded-opentype'),
+		url('./fonts/firasans-extralight.woff') format('woff'),
+		url('./fonts/firasans-extralight.woff2') format('woff2');
+	font-style: normal;
+	font-weight: 100;
+	font-display: swap;
+}
+
+img {
+	border: 0px solid #AAAAAA; 
+}
+
+a:link { 
+	color: #000;
+	text-decoration: none;
+	border-bottom: 2px dotted #888888;
+}
+
+a:visited { 
+	color: #000;
+	text-decoration: none;
+	border-bottom: 2px dotted #888888;
+}
+
+a:hover { 
+	color: #000;
+	text-decoration: none;
+	border-bottom: 2px dotted #662299;
+}
+
+a:active { 
+	color: #000;
+	text-decoration: none;
+	border-bottom: 2px dotted #662299;
+}
+
+a:focus { 
+	color: #000;
+	text-decoration: none;
+	border-bottom: 2px dotted #662299;
+}
+
+.linkStyleImitation { 
+	color: #000;
+	text-decoration: none;
+	border-bottom: 2px dotted #888888;
+	cursor: pointer;
+}
+
+.linkStyleImitation:hover { 
+	color: #000;
+	text-decoration: none;
+	border-bottom: 2px dotted #662299;
+	cursor: pointer;
+}
+
+.image-link:link {
+	color: #000;
+	text-decoration: none;
+	border-bottom: 0px dotted #662299;
+	cursor: pointer;
+}
+
+.image-link:hover {
+	color: #000;
+	text-decoration: none;
+	border-bottom: 0px dotted #662299;
+	cursor: pointer;
+}
+
+.image-link:active {
+	color: #000;
+	text-decoration: none;
+	border-bottom: 0px dotted #662299;
+	cursor: pointer;
+}
+
+.image-link:focus {
+	color: #000;
+	text-decoration: none;
+	border-bottom: 0px dotted #662299;
+	cursor: pointer;
+}
+
+
+body, h1, h2, h3, p, li, td {
+	-moz-font-feature-settings: "kern" 1; 
+	-ms-font-feature-settings: "kern" 1; 
+	-o-font-feature-settings: "kern" 1; 
+	-webkit-font-feature-settings: "kern" 1; 
+	font-feature-settings: "kern" 1;
+	font-kerning: normal;
+}
+
+.title {
+	font-family: 'Fjalla One Regular', sans-serif;
+	font-size: 48pt;
+	line-height: 36pt;
+	text-transform: uppercase;
+	color: #000;
+	text-align: center;
+	margin: 72pt 0 36pt 0pt;
+	border-width: 0px 0 0px 0;
+	border-color: #000;
+	border-style: solid;
+	padding: 6pt 0 6pt 0;
+}
+
+.subtitle {
+	font-family: 'Fira Sans ExtraLight', sans-serif;
+	font-size: 21pt;
+	line-height: 32pt;
+}
+
+h1 {
+	font-family: 'Fjalla One Regular', sans-serif;
+	font-size: 48pt;
+	line-height: 36pt;
+	text-transform: uppercase;
+	color: #000;
+	text-align: left;
+	margin: 72pt 0 36pt 48pt;
+	border-width: 0px 0 0px 0;
+	border-color: #000;
+	border-style: solid;
+	padding: 6pt 0 6pt 0;
+}
+
+h2 {
+	font-family: 'Fjalla One Regular', sans-serif;
+	font-size: 18pt;
+	line-height: 24pt;
+	color: #000;
+	text-align: left;
+	margin: 24pt 0 12pt 48pt;
+	border-bottom: 3px dotted #888;
+	padding: 0 0 5px 0;
+}
+
+h3 {
+	font-family: 'Fjalla One Regular', sans-serif;
+	font-size: 12pt;
+	letter-spacing: 1pt;
+	color: #000;
+	text-align: left;
+	margin: 24pt 0 20pt 48pt;
+	border: 0;
+	padding: 0;
+}
+
+p, li {
+	font-family: 'Fira Sans Regular', serif;
+	font-size: 12pt;
+	line-height: 20pt;
+	color: #000;
+}
+
+
+.blurb {
+	font-family: 'Merriweather Black', serif;
+	font-size: 21pt;
+	line-height: 32pt;
+	margin: 24pt 0 56pt 0pt;
+}
+
+.blurb-italic {
+	font-family: 'Merriweather BlackItalic', serif;
+}
+
+.legend {
+	font-family: 'Fira Sans SemiBold', sans-serif;
+	font-size: 12pt;
+	line-height: 20pt;
+	color: #000;
+	padding: 0px 0px 6pt 0px;
+	border-bottom: 0px solid #AAAAAA; 
+	margin: 0 0 28pt 0;
+}
+
+.credits {
+	font-family: 'Fira Sans Regular', serif;
+	font-size: 10pt;
+	line-height: 14pt;
+	padding: 6pt 0px 6pt 0px;
+	border-bottom: 1px solid #AAAAAA; 
+	border-top: 1px solid #AAAAAA; 
+	margin: 0 0 28pt 0;
+}
+
+.note {
+	padding: 12pt 18pt 12pt 18pt;
+	background-color: #FDFFDA;
+}
+
+.recommendation {
+	padding: 12pt 18pt 12pt 18pt;
+	background-color: #CFF0FB; /* #CFF0FB pale blue; #B3D8FF more saturated pale blue */
+}
+
+.roman {
+	font-family: 'Fira Sans Regular', serif;
+}
+
+.italic {
+	font-family: 'Fira Sans Italic', serif;
+	font-style: italic;
+}
+
+.bold {
+	font-family: 'Fira Sans SemiBold', serif;
+}
+
+.bold-italic {
+	font-family: 'Fira Sans SemiBoldItalic', serif;
+}
+
+.sans-serif {
+	font-family: 'Fira Sans Regular', sans-serif;
+}
+
+.underline {
+	border-bottom: 5px solid #5520B0;
+}
+
+.indented {
+	padding: 0 24pt 0 24pt;
+}
+
+.center {
+	text-align: center;
+}
+
+.castroll {
+	padding: 3pt 6pt 3pt 6pt;
+	border: 0px solid #AAAAAA; 
+	margin: 0 0 0 0;
+	background-color: #5520B0;
+	color: #FFF;
+}
+
+table { 
+	border-top: 12pt solid transparent; 
+	border-bottom: 12pt solid transparent; 
+	border-spacing: 0px;
+	border-collapse: collapse;
+}
+
+td { 
+	font-family: 'Fira Sans SemiBold', sans-serif;
+	font-size: 12pt;
+	line-height: 20pt;
+	color: #000;
+	border: 0px solid #AAAAAA; 
+	padding: 0px 0px 6pt 0px;
+	text-align: center;
+	vertical-align: top;
+}
+
+ul { 
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+hr { 
+    height: 1px; 
+    border-width: 0;
+    color: #AAA;
+    background-color: #AAA;
+}
+
+#menu {
+	z-index: 2;
+	position: fixed;
+	top: 0px;
+	width: 725px;
+	height: 40pt;
+	max-width: 725px;
+	background-color: #FFF;
+	border-top: 5px solid #ff6005; /* violet 5520B0, orange ff6005 */
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+}
+
+#menu * p {
+	font-family: 'Fira Sans Regular', sans-serif;
+	font-size: 12pt;
+	line-height: 20pt;
+	text-transform: uppercase;
+	letter-spacing: 2pt;
+	color: #000;
+}
+
+#menu * a:link { border-bottom: 0px dotted #888888; }
+#menu * a:visited { border-bottom: 0px dotted #888888; }
+#menu * a:hover { border-bottom: 5px solid #5520B0; }
+#menu * a:active { border-bottom: 5px solid #5520B0; }
+#menu * a:focus { border-bottom: 5px solid #5520B0; }
+
+#menu * td { 
+	width: 9%;
+}
+
+
+#download-table {
+	width: 100%;
+	box-sizing: border-box;
+	border-width: 0px;
+	border-spacing: 0px;
+	border-collapse: collapse;
+	margin: 36pt 0px 36pt 0pt;
+}
+
+.download-td-link { 
+	width: 25%;
+	padding: 10pt 3pt;
+	border: 1px solid #662299;
+	margin: 0px;
+	background-color: #FFFFFF;
+}
+
+.download-td-spacer { 
+	width: 12.5%;
+}
+
+#download-table * a:link { border-bottom: 0px none #FFF; }
+#download-table * a:visited { border-bottom: 0px none #FFF; }
+#download-table * a:hover { border-bottom: 5px solid #5520B0; }
+#download-table * a:active { border-bottom: 5px solid #5520B0; }
+#download-table * a:focus { border-bottom: 5px solid #5520B0; }
+
+
